@@ -13,6 +13,10 @@
         #logo{
             margin-left: 7vw;           /*logo margin */
         }
+        #logo img{
+          width: 15vw;
+          height: auto;
+        }
         #menu {
             margin-left: 50vw;           /*menu margin*/
         }
@@ -83,14 +87,73 @@
         #hours{
           margin-top: -1.5vh;
         }
-        
+        .why-us-container{
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 5vw;
+          background-color: darkgrey;
+          width: 100vw;
+          padding-bottom: 7vh;
+        }
+        .text-list{
+          padding-top: 6vh;
+          margin-left: 8vw;
+        }
+        .custom-icon-list {
+          list-style: none; /* Removes default bullets */
+          padding: 0;
+          margin: 3vh 0;
+        }
+
+        .custom-icon-list li {
+          display: flex;
+          align-items: flex-start; /* Aligns icon with the top of the text line */
+          gap: 10px;               /* Spacing between icon and text */
+          line-height: 2;          /* Gives the list some breathing room */
+          vertical-align: baseline;
+          margin-top: 1vh;
+        }
+
+        .custom-icon-list i {
+          color: rgb(99, 230, 190); /* Uses your brand's green color */
+          margin-top: 1vh;          /* Tweaks vertical alignment if needed */
+        }
+        #image{
+          margin-left: -5vw;
+          height: 40vh;
+          width: auto;
+          border-radius: 2vh;
+        }
+        .services-container{
+          padding-top: 5vh;
+          align-items: center;
+          width: 100vw;
+          background-color: blueviolet;
+        }
+        .services-container h1, .services-container h4 {
+          text-align: center;
+          padding-top: 2vh;
+        }
+        .button-container{
+          margin-left: -5vw;
+          padding: 3vh 0;
+          display:flex;
+          justify-content: center;
+          align-items: center;
+        }
+        #footer-logo{
+          margin-left: -2vw;
+          width: 10vw;
+          height: auto;
+        }
     </style>
 </head>
 <body>
     
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="" id="logo">Navbar</a>
+          <a class="navbar-brand" href="" id="logo"><img src="/static/images/logo.png" alt="Logo image"/></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -158,8 +221,32 @@
         <div class="container d-flex justify-content-center">
             <a href="#" id="services" style="font-size: large;">View all services <i class="fa-solid fa-arrow-right"></i></a>
         </div>
-        
-
+    </div>
+    <div class="why-us-container">
+      <div class="text-list col-4">
+        <h2><b>Why Choose ElevateServe?</b></h2><br>
+        <h4 style="overflow-wrap: break-word; word-break: normal;">With over 25 years of experience, we are the trusted partner for elevator maintenance across commercial and residential properties.</h4>
+        <ul class="custom-icon-list">
+          <li><i class="fa-regular fa-circle-check"></i> First premium feature</li>
+          <li><i class="fa-regular fa-circle-check"></i> Second premium feature</li>
+          <li><i class="fa-regular fa-circle-check"></i> Responsive design included</li>
+          <li><i class="fa-regular fa-circle-check"></i> First premium feature</li>
+          <li><i class="fa-regular fa-circle-check"></i> Second premium feature</li>
+          <li><i class="fa-regular fa-circle-check"></i> Responsive design included</li>
+        </ul>
+        <a href="">Learn More About Us  <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="image col-4">
+        <img src="/static/images/logo.jpg" alt="Logo" id="image">
+      </div>
+    </div>
+    <div class="services-container">
+      <h1>Need Elevator Service Today?</h1>
+      <h4>Our expert technicians are ready to help. Contact us for a free consultation.</h4>
+      <div class="button-container">
+        <a type="button" href="#" class="btn btn-light btn-lg left-space" id="quote-button">Request Service <i class="fa-solid fa-arrow-right"></i></a>  <!--# to be changes to the path-->
+            <a type="button" href="tel:+46 123456789" class="btn transparent btn-lg" id="phone"><i class="fa-solid fa-phone" style="color: rgb(99, 230, 190);"></i> Call now</a>
+      </div>
     </div>
 
 
@@ -170,7 +257,7 @@
     <footer class="footer-container">
       <div class="row">
         <div class="col-3">
-          <img src="" alt="logo" id="footer-logo">
+          <img src="/static/images/logo.png" alt="logo" id="footer-logo">
           <p>Professional elevator maintenance and modernization services. Backed by 25+ years of industry expertise to keep your elevators running safely and efficiently.</p>
         </div>
         <div class="col-3">
