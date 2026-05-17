@@ -1,0 +1,229 @@
+{% extends './partials/base.html'%}
+
+{% block style %}
+<style>
+    #our-services{
+        justify-content: center;
+        align-items: center;
+        background-color: lightblue;
+    }
+    #cards, #all-services{
+        padding: 0 6vw;
+    }
+    .card:hover{
+        box-shadow: -1vh 1vw 1vh -8px gray,
+                    1vh 1vw 1vh -8px gray;
+    }
+    #icon-box{
+        width: 6vh;
+        aspect-ratio: 1 / 1 ;
+        background-color: aquamarine;
+        border-radius: 1.5vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 3vh;
+    }
+    #icons{
+        font-size: 2.5vh;
+    }
+    .custom-icon-list{
+        list-style: none; /* Removes default bullets */
+        padding: 0;
+        margin: 3vh 0;
+        
+    }
+    .card-body{
+        padding: 2.5vh 2vw 0 2vw ;
+    }
+    .fa-regular{
+        color: aquamarine;
+    }
+    .elevator-type{
+        color:blue;
+    }
+    #service-schedule{
+        text-align: center;
+        margin-bottom: 5vh;
+    }
+    #all-services{
+        background-color: lightblue;
+    }
+</style>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+{% block content %}
+<section id="our-services">
+    <p style="font-size: 1.8vw; text-align: center; padding-top: 8vh;"><b>Our services</b></p>
+    <p style="font-size: 1.2vw; text-align: center; padding-top: 1vh; padding-bottom: 6vh;">Comprehensive elevator maintenance and modernization solutions  tailored to your needs</p>
+</section>
+
+<section id="cards">
+    <div class="row">
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+                <div id="icon-box">
+                    <i class="fa-solid fa-wrench" id="icons"></i>
+                </div>
+                <h4><b>Preventive Maintenance</b></h4>
+                <p class="card-text">Scheduled maintenance programs to keep your elevators running smoothly and prevent costly breakdowns.</p>
+                <ul class="custom-icon-list">
+                    <li><i class="fa-regular fa-circle-check"></i> Regular inspections and lubrication</li>
+                    <li><i class="fa-regular fa-circle-check"></i> Component wear assessment</li>
+                    <li><i class="fa-regular fa-circle-check"></i> Performance testing</li>
+                    <li><i class="fa-regular fa-circle-check"></i> Detailed maintenance reports</li>
+                </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                  <div id="icon-box">
+                    <i class="fa-solid fa-shield" id="icons"></i>
+                  </div>
+                  <h4><b>Safety Inspections</b></h4>
+                  <p class="card-text">Comprehensive safety testing and certification to ensure compliance with all local and national regulations.</p>
+                  <ul class="custom-icon-list">
+                      <li><i class="fa-regular fa-circle-check"></i> Annual safety inspections</li>
+                      <li><i class="fa-regular fa-circle-check"></i> Code compliance verification</li>
+                      <li><i class="fa-regular fa-circle-check"></i> Safety device testing</li>
+                      <li><i class="fa-regular fa-circle-check"></i> Certification documentation</li>
+                  </ul>
+              </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                  <div id="icon-box">
+                    <i class="fa-solid fa-arrow-trend-up" id="icons"></i>
+                  </div>
+                  <h4><b>Modernization</b></h4>
+                  <p class="card-text">Upgrade your elevator systems with the latest technology for improved performance and energy efficiency.</p>
+                  <ul class="custom-icon-list">
+                      <li><i class="fa-regular fa-circle-check"></i> Control system upgrades</li>
+                      <li><i class="fa-regular fa-circle-check"></i> Door operator replacement</li>
+                      <li><i class="fa-regular fa-circle-check"></i> Energy-efficient motors</li>
+                      <li><i class="fa-regular fa-circle-check"></i> Modern cab interiors</li>
+                  </ul>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                  <div id="icon-box">
+                    <i class="fa-solid fa-gear" id="icons"></i>
+                  </div>
+                  <h4><b>Repairs & Troubleshooting</b></h4>
+                  <p class="card-text">Expert diagnosis and repair of all elevator issues, from minor adjustments to major component replacement.</p>
+                  <ul class="custom-icon-list">
+                      <li><i class="fa-regular fa-circle-check"></i> Diagnostic testing</li>
+                      <li><i class="fa-regular fa-circle-check"></i> Component repair/replacement</li>
+                      <li><i class="fa-regular fa-circle-check"></i> System optimization</li>
+                      <li><i class="fa-regular fa-circle-check"></i> Performance restoration</li>
+                  </ul>
+              </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                  <div id="icon-box">
+                    <i class="fa-solid fa-file-circle-check" id="icons"></i>
+                  </div>
+                  <h4><b>Consulting & Assessment</b></h4>
+                  <p class="card-text">Professional evaluation of your elevator systems with recommendations for improvements and cost savings.</p>
+                  <ul class="custom-icon-list">
+                      <li><i class="fa-regular fa-circle-check"></i> System evaluation</li>
+                      <li><i class="fa-regular fa-circle-check"></i> Efficiency analysis</li>
+                      <li><i class="fa-regular fa-circle-check"></i> Upgrade recommendations</li>
+                      <li><i class="fa-regular fa-circle-check"></i> Budget planning</li>
+                  </ul>
+              </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                  <div id="icon-box">
+                    <i class="fa-regular fa-clock" id="icons"></i>
+                  </div>
+                  <h4><b>Emergency Repairs</b></h4>
+                  <p class="card-text">Fast response to urgent elevator issues to minimize downtime and restore service quickly.</p>
+                  <ul class="custom-icon-list">
+                      <li><i class="fa-regular fa-circle-check"></i> Rapid response service</li>
+                      <li><i class="fa-regular fa-circle-check"></i> Priority scheduling</li>
+                      <li><i class="fa-regular fa-circle-check"></i> Emergency parts inventory</li>
+                      <li><i class="fa-regular fa-circle-check"></i> Experienced technicians</li>
+                  </ul>
+              </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="all-services">
+    <p style="font-size: 1.8vw; text-align: center; padding-top: 8vh;"><b>We Service All Elevator Types</b></p>
+    <p style="font-size: 1.2vw; text-align: center; padding-top: 1vh; padding-bottom: 6vh;">From residential to commercial and industrial applications</p>
+    <div class="row">
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Residential Elevators</h5>
+              <ul class="custom-icon-list">
+                <li><i class="fa-regular fa-circle-check elevator-type"></i> Home elevators</li>
+                <li><i class="fa-regular fa-circle-check elevator-type"></i> Low-rise buildings</li>
+                <li><i class="fa-regular fa-circle-check elevator-type"></i> Accessibility lifts</li>
+            </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Commercial Elevators</h5>
+                <ul class="custom-icon-list">
+                  <li><i class="fa-regular fa-circle-check elevator-type"></i> Office buildings</li>
+                  <li><i class="fa-regular fa-circle-check elevator-type"></i> Retail centers</li>
+                  <li><i class="fa-regular fa-circle-check elevator-type"></i> Hotels & hospitality</li>
+              </ul>
+              </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Industrial Elevators</h5>
+                <ul class="custom-icon-list">
+                  <li><i class="fa-regular fa-circle-check elevator-type"></i> Freight elevators</li>
+                  <li><i class="fa-regular fa-circle-check elevator-type"></i> Service lifts</li>
+                  <li><i class="fa-regular fa-circle-check elevator-type"></i> Heavy-duty systems</li>
+              </ul>
+              </div>
+            </div>
+        </div>
+</section>
+
+<section id="service-schedule">
+    <h1 style="font-size: 1.8vw; text-align: center; padding-top: 8vh;"><b>Ready to Schedule Service?</b></h1>
+    <p style="font-size: 1.2vw; text-align: center; padding-top: 1vh; padding-bottom: 6vh;">Comprehensive elevator maintenance and modernization solutions  tailored to your needs</p>
+    <a type="button" href="#" class="btn btn-primary btn-lg" >Get Started <i class="fa-solid fa-arrow-right"></i></a>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
