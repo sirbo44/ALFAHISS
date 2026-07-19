@@ -1,0 +1,107 @@
+/* General Otis-Style Clean Look */
+body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    color: #333;
+    padding-top: 6.2%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 100% του ύψους της οθόνης (Viewport Height) */
+    margin: 0;
+}
+
+/* Navbar Otis-Style */
+.navbar {
+    background-color: #ffffff !important;
+    border-bottom: 2px solid #005a8d; /* Otis Blue */
+    padding: 1.9% 0;
+    z-index: 1056;
+    position: fixed; /* Πρέπει να είναι fixed για να μένει στην κορυφή */
+    top: 0;
+    width: 100%;
+    transition: top 0.3s; /* Το εφέ της κίνησης */
+}
+
+.offcanvas{
+    margin-top: 6.2%;
+    z-index: 1050;
+}
+
+.navbar .container-fluid {
+    max-width: 94%; /* Θα πιάνει το 95% του διαθέσιμου πλάτους */
+    /* padding-bottom: 2%; */
+    margin: 0 auto;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #005a8d !important;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    color: #333 !important;
+    font-weight: 500;
+}
+
+.flag{
+    font-size: 1.2rem;
+    border-radius: 50%;
+}
+
+/* Carousel/Hero */
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .carousel-inner, .carousel-item img {
+        height: 270px; 
+    }
+    
+}
+
+
+/* Για υπολογιστές */
+@media (min-width: 769px) {
+    .carousel-inner, .carousel-item img {
+        height: 470px; 
+    }
+}
+
+
+.carousel {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Info Section (The "No-Nav" Tab) */
+#infoSection {
+    background-color: #f8f9fa;
+    border-left: 5px solid #005a8d;
+    padding: 2rem !important;
+    margin-top: 20px;
+}
+
+main {
+    flex: 1; /* Αυτό "αναγκάζει" το footer να πάει στο τέλος */
+}
+
+/* Footer Styling */
+footer {
+    background-color: gray;
+    color: white;
+    padding: 30px 0;
+    margin-top: auto;
+}
+
+.footer-address{
+    /* font-weight: bold; */
+    color: black;
+    font-size: 1.45rem;
+    text-align: left;
+    overflow-wrap: break-word;
+    margin-top: 5%;
+}

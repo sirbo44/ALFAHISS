@@ -3,152 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>{{ page.capitalize }} Page</title>
-    <style>
-        body {
-            overflow-x: hidden;
-        }
-        #logo{
-            margin-left: 7vw;           /*logo margin */
-        }
-        #logo img{
-          width: 15vw;
-          height: auto;
-        }
-        #menu {
-            margin-left: 40vw;           /*menu margin*/
-        }
-        .menu-items {
-            margin-left: 2vw;
-        }
-        nav{
-            height: 10vh;
-        }
-        .navbar{
-          position: -webkit-sticky; /* For Safari compatibility */
-          position: sticky;
-          top: 0;
-          z-index: 1000;
-        }
-        .left-space{
-            margin-left: 7vw;
-        }
-        .right-space{
-            margin-right: 7vw;
-        }
-        .text{
-            padding-top: 10vh;
-        }
-        
-        a{
-            text-decoration: none;
-            color:aquamarine
-        }
-        a:hover{
-            color:aquamarine
-        }
-        .row{
-            padding-bottom: 5vh;
-        }
-        footer{
-          padding-top: 4vh;
-          margin-left: 8vw;
-          margin-right: 8vw;
-        }
-        ul {
-          margin-top:1vh;
-          margin-left: -1.5vw;
-        }
-        li{
-          line-height: 2;
-        }
-        #hours{
-          margin-top: -1.5vh;
-        }
-        
-        #footer-logo{
-          margin-left: -2vw;
-          width: 10vw;
-          height: auto;
-        }
-    </style>
-    {% block style %} {% endblock %}
+    <title>ALFAHISS</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- CSS -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Flags -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css"/>
 </head>
 <body>
-    
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
         <div class="container-fluid">
-          <a class="navbar-brand" href="{% url 'home' %}" id="logo"><img src="/static/images/logo.png" alt="Logo image"/></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav" id="menu">
-              <a class="nav-link menu-items {% if request.path == '/' %} active {% endif %}" aria-current="page" href="{% url 'home' %}">Home</a>
-              <a class="nav-link menu-items {% if request.path == '/services/' %} active {% endif %}" aria-current="page" href="{% url 'services' %}">Services</a>
-              <a class="nav-link menu-items {% if request.path == '/about/' %} active {% endif %}" aria-current="page" href="{% url 'about' %}">About</a>
-              <a class="nav-link menu-items {% if request.path == '/contact/' %} active {% endif %}" aria-current="page" href="{% url 'contact' %}">Contact</a>
-              <a class="nav-link menu-items {% if request.path == '/quote/' %} active {% endif %}" aria-current="page" href="{% url 'quote' %}">Quote</a>
+            <a class="navbar-brand" href="">ALFAHISS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="showInfo('home')">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="showInfo('about')">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="showInfo('service')">Service</a></li>
+                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="showInfo('contact')">Contact</a></li>
+                    {% load i18n %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="langDropdown" role="button" data-bs-toggle="dropdown">
+                            <!-- Εδώ αλλάζουμε τη σημαία δυναμικά -->
+                            {% if LANGUAGE_CODE == 'sv' %}
+                                <span class="fi fi-se flag"></span>
+                            {% else %}
+                                <span class="fi fi-gb flag"></span>
+                            {% endif %}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <!-- English Option -->
+                            <li>
+                                <a class="dropdown-item" href="/">
+                                    <span class="fi fi-gb"></span> English
+                                </a>
+                            </li>
+                            <!-- Swedish Option -->
+                            <li>
+                                <form action="{% url 'set_language' %}" method="post">
+                                    {% csrf_token %}
+                                    <input name="next" type="hidden" value="{{ request.get_full_path }}">
+                                    <button type="submit" name="language" value="sv" class="dropdown-item">
+                                        <span class="fi fi-se"></span> Svenska
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-          </div>
         </div>
     </nav>
     
-    {% block content %} {% endblock %}
+    <!-- Το "Κουτί" που εμφανίζεται από κάτω -->
+    <div class="offcanvas offcanvas-top" tabindex="-1" id="infoBox" data-bs-backdrop="false">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="infoTitle">Details</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body" id="infoContent">
+            <!-- Εδώ θα μπαίνει το περιεχόμενο δυναμικά -->
+        </div>
+    </div>
 
 
-    <footer class="footer-container">
-      <div class="row">
-        <div class="col-3">
-          <img src="/static/images/logo.png" alt="logo" id="footer-logo">
-          <p>Professional elevator maintenance and modernization services. Backed by 25+ years of industry expertise to keep your elevators running safely and efficiently.</p>
+    <main>
+        <div>
+            {% block content %}{% endblock %}
         </div>
-        <div class="col-3">
-          <h4>Quick Links</h4>
-          <ul style="list-style-type: none;">
-            <li><a href="">Home</a></li>
-            <li><a href="/services">Services</a></li>
-            <li><a href="/about">About Us</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li><a href="/quote">Quote</a></li>
-          </ul>
-        </div>
-        <div class="col-3">
-          <h4>Contact Info</h4>
-          <ul style="list-style-type: none;">
-            <li>
-              <i class="fa-solid fa-phone" style="color: rgb(99, 230, 190);"></i> +46 123 45 67 89
-            </li>
-            <li>
-              <i class="fa-solid fa-envelope" style="color: rgb(99, 230, 190);"></i> info@elevateserve.com
-            </li>
-            <li>
-              <i class="fa-solid fa-location-dot" style="color: rgb(99, 230, 190);"></i> 123 Industrial Park Blvd, Suite 200 New York, NY 10001
-            </li>
-          </ul>
-        </div>
-        <div class="col-3">
-          <h4>Contact Info</h4>
-          <div class="row">
-            <div class="col-1">
-              <i class="fa-regular fa-clock" style="color: rgb(99, 230, 190);"></i>
+        
+    </main>
+    
+    <footer class="footer mt-auto py-4 border-top">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-2">
+                    <a class="navbar-brand" href="#">ALFAHISS</a>
+                    <p class="footer-address">Visiting address: Storsätragränd 5A, 127 39 Skärholmen</p>
+                    <p class="footer-address">Postal address: Otis AB, Box 42076, 126 13 Stockholm</p>
+                </div>
+                <div class="col-md-4">
+                    <!-- <h5>Contact</h5>
+                    <p>Email: info@alfahiss.com</p> -->
+                </div>
+                <div class="col-md-4">
+                    <!-- <h5>Follow Us</h5>
+                    <div class="social-links">
+                        <a href="#" class="text-dark me-2"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-dark me-2"><i class="fab fa-linkedin"></i></a>
+                    </div> -->
+                </div>
             </div>
-            <div class="col-10" id="hours">
-              <ul style="list-style-type: none;">
-                <li>Mon - Fri: 7:00 AM - 6:00 PM</li>
-                <li>Sat: 8:00 AM - 2:00 PM</li>
-                <li>Sun: Closed</li>
-              </ul>
+            <div class="text-center mt-3 small text-muted">
+                &copy; 2026 ALFAHISS Maintenance. All rights reserved.
             </div>
-          </div>
         </div>
-      </div>
-      <hr style="border: 0; border-top: 0.1vh solid black; margin: 1.5vh 0;">
-      <p style="text-align: center;">© 2026 ElevateServe Elevator Solutions. All rights reserved.</p>
     </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function showInfo(type) {
+            const offcanvas = new bootstrap.Offcanvas('#infoBox');
+            const title = document.getElementById('infoTitle');
+            const content = document.getElementById('infoContent');
+    
+            // Ορισμός περιεχομένου ανάλογα με το link
+            if (type === 'about') {
+                title.innerText = "About Us";
+                content.innerHTML = "<p>Πληροφορίες για την εταιρεία...</p><a href='#'>Δες περισσότερα</a>";
+            } else if (type === 'service') {
+                title.innerText = "Our Services";
+                content.innerHTML = "<ul><li>Maintenance</li><li>Repair</li></ul>";
+            }
+            
+            offcanvas.show();
+        }
+    </script>
+    <script>
+        let prevScrollpos = window.pageYOffset;
+        const navbar = document.querySelector(".navbar");
+    
+        window.onscroll = function() {
+            let currentScrollPos = window.pageYOffset;
+            
+            // Αν το scroll είναι προς τα πάνω (prev > current)
+            if (prevScrollpos > currentScrollPos) {
+                navbar.style.top = "0";
+            } else {
+                // Αν το scroll είναι προς τα κάτω, κρύβουμε το navbar
+                navbar.style.top = "-80px"; // Το μέγεθος του ύψους που ορίσαμε
+            }
+            
+            prevScrollpos = currentScrollPos;
+        }
+    </script>
 </body>
-{% block scripts %} {% endblock %}
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </html>

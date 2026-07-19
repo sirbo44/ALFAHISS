@@ -1,30 +1,19 @@
-"""
-URL configuration for config project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
-from web_app import views
+from django.conf.urls.i18n import i18n_patterns
+from django.views.i18n import set_language
+from web_app import views # Import τα views απευθείας από εδώ
 
 urlpatterns = [
+    path('i18n/', set_language, name='set_language'),
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
-    path('services/', views.services, name='services'),
-    path('about/', views.about, name='about'),
-    path('contact/', views.contact, name='contact'),
-    path('quote/', views.quote, name='quote'),
-    # path('',),
-    # path('',),
 ]
+
+# Εδώ μπαίνουν όλα τα URL της εφαρμογής σου
+urlpatterns += i18n_patterns(
+    path('', views.home, name='home'),
+    # path('about/', views.about, name='about'),
+    # path('service/', views.service, name='service'),
+    # path('contact/', views.contact, name='contact'),
+    prefix_default_language=False,
+)
