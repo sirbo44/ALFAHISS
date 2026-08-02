@@ -122,11 +122,26 @@
             } else if (type === 'service') {
                 title.innerText = "Our Services";
                 content.innerHTML = "<ul><li>Maintenance</li><li>Repair</li></ul>";
+            } else if (type === 'home') {
+                title.innerText = "Home";
+                content.innerHTML = "<p>Καλώς ήρθατε στην ALFAHISS.</p>";
+            } else if (type === 'contact') {
+                title.innerText = "Contact";
+                content.innerHTML = "<p>Επικοινωνήστε μαζί μας...</p>";
             }
             
+            // Εμφάνιση του offcanvas box
             offcanvas.show();
+
+            // ΑΥΤΟΜΑΤΟ ΚΛΕΙΣΙΜΟ ΤΟΥ NAVBAR ΣΤΑ ΚΙΝΗΤΑ ΜΟΛΙΣ ΓΙΝΕΙ ΚΛΙΚ
+            const navbarCollapse = document.getElementById('navbarNav');
+            if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse) || new bootstrap.Collapse(navbarCollapse);
+                bsCollapse.hide();
+            }
         }
     </script>
+
     <script>
         let prevScrollpos = window.pageYOffset;
         const navbar = document.querySelector(".navbar");
@@ -134,35 +149,14 @@
         window.onscroll = function() {
             let currentScrollPos = window.pageYOffset;
             
-            // Αν το scroll είναι προς τα πάνω (prev > current)
             if (prevScrollpos > currentScrollPos) {
                 navbar.style.top = "0";
             } else {
-                // Αν το scroll είναι προς τα κάτω, κρύβουμε το navbar
-                navbar.style.top = "-80px"; // Το μέγεθος του ύψους που ορίσαμε
+                navbar.style.top = "-80px";
             }
             
             prevScrollpos = currentScrollPos;
         }
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Επιλέγουμε όλα τα links του navbar
-            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-            const navbarCollapse = document.querySelector('.navbar-collapse');
-            
-            if (navbarCollapse) {
-                navLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        // Ελέγχουμε αν το μενού είναι ανοιχτό (έχει την κλάση show)
-                        if (navbarCollapse.classList.contains('show')) {
-                            const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse) || new bootstrap.Collapse(navbarCollapse);
-                            bsCollapse.hide();
-                        }
-                    });
-                });
-            }
-        });
     </script>
 </body>
 </html>
