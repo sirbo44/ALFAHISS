@@ -32,10 +32,6 @@ body {
     transition: top 0.3s; /* Το εφέ της κίνησης */
 }
 
-.offcanvas.offcanvas-top {
-    padding-top: 6%;
-    z-index: 1050;
-}
 
 .navbar .container-fluid {
     max-width: 94%; /* Θα πιάνει το 95% του διαθέσιμου πλάτους */
