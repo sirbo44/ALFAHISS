@@ -1,3 +1,14 @@
+/* Για Chrome, Safari και Opera */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Για Firefox, IE και Edge */
+body {
+    -ms-overflow-style: none;  /* IE και Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
 /* General Otis-Style Clean Look */
 body {
     font-family: 'Segoe UI', Roboto, sans-serif;
@@ -28,7 +39,6 @@ body {
 
 .navbar .container-fluid {
     max-width: 94%; /* Θα πιάνει το 95% του διαθέσιμου πλάτους */
-    /* padding-bottom: 2%; */
     margin: 0 auto;
 }
 
@@ -48,34 +58,19 @@ body {
     border-radius: 50%;
 }
 
-/* Carousel/Hero */
-.carousel-caption {
-    background: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 5px;
-}
-
+/* Responsive ύψος εικόνας ακριβώς όπως το είχες */
 @media (max-width: 768px) {
-    .carousel-inner, .carousel-item img {
-        height: 270px; 
+    .hero-container img {
+        height: 270px !important; 
     }
-    
 }
 
-
-/* Για υπολογιστές */
 @media (min-width: 769px) {
-    .carousel-inner, .carousel-item img {
-        height: 470px; 
+    .hero-container img {
+        height: 320px !important;
     }
 }
 
-
-.carousel {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
 
 /* Info Section (The "No-Nav" Tab) */
 #infoSection {
@@ -98,7 +93,6 @@ footer {
 }
 
 .footer-address{
-    /* font-weight: bold; */
     color: black;
     font-size: 1.45rem;
     text-align: left;
