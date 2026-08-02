@@ -32,10 +32,6 @@ body {
     transition: top 0.3s; /* Το εφέ της κίνησης */
 }
 
-.offcanvas{
-    margin-top: 6.2%;
-    z-index: 1050;
-}
 
 .navbar .container-fluid {
     max-width: 94%; /* Θα πιάνει το 95% του διαθέσιμου πλάτους */
@@ -63,11 +59,19 @@ body {
     .hero-container img {
         height: 270px !important; 
     }
+    .offcanvas{
+        margin-top: 7.2%;
+        z-index: 1050;
+    }
 }
 
 @media (min-width: 769px) {
     .hero-container img {
         height: 320px !important;
+    }
+    .offcanvas{
+        margin-top: 6.2%;
+        z-index: 1050;
     }
 }
 
