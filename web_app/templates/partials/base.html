@@ -145,5 +145,24 @@
             prevScrollpos = currentScrollPos;
         }
     </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Επιλέγουμε όλα τα links του navbar
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            
+            if (navbarCollapse) {
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        // Ελέγχουμε αν το μενού είναι ανοιχτό (έχει την κλάση show)
+                        if (navbarCollapse.classList.contains('show')) {
+                            const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse) || new bootstrap.Collapse(navbarCollapse);
+                            bsCollapse.hide();
+                        }
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
