@@ -12,8 +12,8 @@ urlpatterns = [
 # Εδώ μπαίνουν όλα τα URL της εφαρμογής σου
 urlpatterns += i18n_patterns(
     path('', views.home, name='home'),
-    # path('about/', views.about, name='about'),
-    # path('service/', views.service, name='service'),
-    # path('contact/', views.contact, name='contact'),
+    path('about/', views.about, name='about'),
+    path('services/', views.services, name='services'),
+    path('work-with-us/', views.work_with_us, name='work-with-us'),
     prefix_default_language=False,
 )

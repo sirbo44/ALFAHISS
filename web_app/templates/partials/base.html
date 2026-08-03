@@ -18,16 +18,16 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
         <div class="container-fluid">
-            <a class="navbar-brand" href="">ALFAHISS</a>
+            <a class="navbar-brand" href="/">ALFAHISS</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="showInfo('home')">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="showInfo('about')">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="showInfo('service')">Service</a></li>
-                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="showInfo('contact')">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/services">Service</a></li>
+                    <li class="nav-item"><a class="nav-link" href="javascript:void(0)" onclick="showInfo('contact')">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/work-with-us">Work with Us</a></li>
                     {% load i18n %}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="langDropdown" role="button" data-bs-toggle="dropdown">
@@ -81,6 +81,28 @@
         
     </main>
     
+        <!-- <div class="row ms-5 mt-3">
+            <div class="col-2 border-end p-3 text-center">Address</div>
+            <div class="col-2 border-end p-3 text-center">Email</div>
+            <div class="col-3  p-3 text-center">Hours</div>
+            <div class="col-4  p-3 text-left bg-info">
+                <h5>Telephone</h3>
+                <a href="tel:+000000000000" class="border-bottom text-decoration-none fs-3 pb-2">0000-000000</a><br>
+                <a href="contact-form" class="text-decoration-none pt-4">Contact Alfahiss</a>
+            </div>
+        </div> -->
+    
+    <!-- <div>
+        <div id="address">address</div>
+        <div class="seperator"> </div>
+        <div id="email">email</div>
+        <div class="seperator"></div>
+        <div id="hours">hours</div>
+        <div id="inner-box">
+
+        </div>
+    </div> -->
+    
     <footer class="footer mt-auto py-4 border-top">
         <div class="container">
             <div class="row text-center">
@@ -116,18 +138,19 @@
             const content = document.getElementById('infoContent');
     
             // Ορισμός περιεχομένου ανάλογα με το link
-            if (type === 'about') {
-                title.innerText = "About Us";
-                content.innerHTML = "<p>Πληροφορίες για την εταιρεία...</p><a href='#'>Δες περισσότερα</a>";
-            } else if (type === 'service') {
-                title.innerText = "Our Services";
-                content.innerHTML = "<ul><li>Maintenance</li><li>Repair</li></ul>";
-            } else if (type === 'home') {
-                title.innerText = "Home";
-                content.innerHTML = "<p>Καλώς ήρθατε στην ALFAHISS.</p>";
-            } else if (type === 'contact') {
-                title.innerText = "Contact";
-                content.innerHTML = "<p>Επικοινωνήστε μαζί μας...</p>";
+            
+            if (type === 'contact') {
+                title.innerHTML = `<div class="fs-3">Contact Us</div>`;
+                content.innerHTML = `<div class="row ms-5 mt-1">
+                                            <div class="col-3 border-end p-3 text-center">Address</div>
+                                            <div class="col-2 border-end p-3 text-center">Email</div>
+                                            <div class="col-3  p-3 text-center">Hours</div>
+                                            <div class="col-3  p-3 text-left bg-info">
+                                                <h5>Telephone</h3>
+                                                <a href="tel:+000000000000" class="border-bottom text-decoration-none fs-3 pb-3">0000-000000</a><br><br>
+                                                <a href="contact-form" class="text-decoration-none mt-4">Contact Alfahiss</a>
+                                            </div>
+                                        </div>`;
             }
             
             // Εμφάνιση του offcanvas box

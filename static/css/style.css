@@ -60,6 +60,7 @@ body {
         height: 270px !important; 
     }
     .offcanvas.offcanvas-top {
+        height: auto !important;
         margin-top: 10%;
         z-index: 1050;
     }
@@ -70,6 +71,7 @@ body {
         height: 320px !important;
     }
     .offcanvas.offcanvas-top {
+        height: auto !important;
         padding-top: 6%;
         z-index: 1050;
     }
@@ -102,4 +104,14 @@ footer {
     text-align: left;
     overflow-wrap: break-word;
     margin-top: 5%;
+}
+
+.seperator{
+    height: 7px;
+    width: 70%;
+    margin: auto;
+    background-color: yellow;
+}
+a {
+    text-decoration: none;
 }
