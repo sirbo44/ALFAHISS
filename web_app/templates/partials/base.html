@@ -240,6 +240,7 @@
             
             // Εμφάνιση του κουτιού
             box.style.display = 'block';
+            document.body.style.overflow = 'hidden';
 
             // Κλείσιμο του navbar στα κινητά
             const navbarCollapse = document.getElementById('navbarNav');
@@ -250,6 +251,7 @@
         }
         function closeInfoBox() {
             document.getElementById('infoBox').style.display = 'none';
+            document.body.style.overflow = '';
         }
         document.addEventListener('click', function(event) {
             const box = document.getElementById('infoBox');
