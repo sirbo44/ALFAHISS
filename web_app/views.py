@@ -14,3 +14,5 @@ def services(request):
 def work_with_us(request):
     return render(request, "work_with_us.html")
 
+def contact_form(request):
+    return render(request, "contact_form.html")

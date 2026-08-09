@@ -1,1 +1,30 @@
 {% extends 'partials/base.html' %}
+
+{% block content %}
+<div class="container-fluid my-5">
+    <div class="row align-items-center g-4 my-5">
+        <div class="col-md-4 text-center">
+            <img src="https://placehold.co/450x600" alt="Manager Name" class="img-fluid rounded shadow-sm" style="width: 100%; max-width: 350px; height: auto; object-fit: cover;">
+        </div>
+        <div class="col-md-8">
+            <h2 class="mb-3">Our History</h2>
+            <p class="text-muted">Εδώ μπαίνει το κείμενο με την ιστορία της επιχείρησης, πώς ξεκίνησε, οι αξίες της και η πορεία της στο πέρασμα των χρόνων...</p>
+            <p class="text-muted">Δεύτερη παράγραφος με περισσότερες λεπτομέρειες για το όραμα και την ομάδα.</p>
+        </div>
+    </div>
+    <div class="col-12 d-md-none my-2">
+        <hr class="text-muted mx-auto w-50">
+    </div>
+    <div class="row align-items-center g-4 my-5">
+        <div class="col-md-7">
+            <h2 class="mb-3">Our History</h2>
+            <p class="text-muted">Εδώ μπαίνει το κείμενο με την ιστορία της επιχείρησης, πώς ξεκίνησε, οι αξίες της και η πορεία της...</p>
+            <p class="text-muted">Δεύτερη παράγραφος με περισσότερες λεπτομέρειες για το όραμα και την ομάδα.</p>
+        </div>
+        <div class="col-md-5 text-center">
+            <img src="https://placehold.co/800x450" alt="Company History" class="img-fluid rounded shadow-sm w-100 object-fit-cover" style="max-height: 350px;">
+        </div>
+
+    </div>
+</div>
+{% endblock %}

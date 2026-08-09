@@ -54,15 +54,27 @@ body {
     border-radius: 50%;
 }
 
-/* Responsive ύψος εικόνας ακριβώς όπως το είχες */
+.offcanvas.offcanvas-top {
+    height: auto !important;             /* Παίρνει αυστηρά ύψος όσο το περιεχόμενό του */
+    min-height: auto !important;
+    max-height: calc(100vh - 120px) !important; /* Για να μην βγαίνει ποτέ εκτός οθόνης */
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* Αποστάσεις ανάλογα με τη συσκευή */
 @media (max-width: 768px) {
     .hero-container img {
         height: 270px !important; 
     }
     .offcanvas.offcanvas-top {
-        height: auto !important;
-        margin-top: 10%;
+        top: 80px !important;         /* Μικρότερη απόσταση στα κινητά για να μην πιάνει χώρο */
         z-index: 1050;
+    }
+    #infoBox {
+        top: 4.2rem;          /* Ακριβώς κάτω από το mobile navbar */
+        width: 100%;        /* Στα κινητά πιάνει όλη την οθόνη για καλύτερη εμπειρία */
+        border-radius: 0;
     }
 }
 
@@ -71,10 +83,24 @@ body {
         height: 320px !important;
     }
     .offcanvas.offcanvas-top {
-        height: auto !important;
-        padding-top: 6%;
-        z-index: 1050;
+        top: 150px !important;        /* Η απόσταση κάτω από το navbar σε desktop */
     }
+    #infoBox {
+        top: 7.5rem;          /* Ακριβώς κάτω από το laptop navbar σου */
+        max-width: 100%;
+    }
+}
+
+#infoBox {
+    position: fixed;       /*  Σταθερό στην οθόνη */
+    left: 50%;              
+    transform: translateX(-50%); /* Κεντράρισμα οριζόντια */
+    width: 94%;             /* Ίδιο πλάτος με το navbar σου */
+    background-color: #ffffff; /* Λευκό φόντο */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Ωραία σκιά */
+    border-radius: 0 0 10px 10px; /* Στρογγυλεμένες μόνο οι κάτω γωνίες για να δένει ωραία */
+    z-index: 1055;          /* Πάνω από όλα τα στοιχεία */
+    display: none;          /* Ξεκινάει κρυφό */
 }
 
 
@@ -85,6 +111,7 @@ body {
     padding: 2rem !important;
     margin-top: 20px;
 }
+
 
 main {
     flex: 1; /* Αυτό "αναγκάζει" το footer να πάει στο τέλος */
@@ -115,3 +142,16 @@ footer {
 a {
     text-decoration: none;
 }
+.services{
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.services:hover {
+    transform: scale(1.05);
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+input, select {
+    scroll-margin-top: 100px; /* Προσαρμόσε το ανάλογα με το ύψος του navbar σου (π.χ. 80px ή 100px) */
+}
+

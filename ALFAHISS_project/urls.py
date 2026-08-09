@@ -15,5 +15,6 @@ urlpatterns += i18n_patterns(
     path('about/', views.about, name='about'),
     path('services/', views.services, name='services'),
     path('work-with-us/', views.work_with_us, name='work-with-us'),
+    path('contact-form/', views.contact_form, name='contact-form'),
     prefix_default_language=False,
 )

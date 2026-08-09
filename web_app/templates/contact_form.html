@@ -1,0 +1,75 @@
+{% extends 'partials/base.html' %}
+
+{% block content %}
+
+<div class="container-fluid my-5 mx-auto">
+    <div class="flex-fill border-bottom text-center rounded bg-light py-5">
+        <strong><h3 class="mb-3">CONTACT ALFAHISS</h3></strong>
+        <h4>Please fill out the form below to learn more about products or services, to provide feedback or other inquires.</h4>
+    </div>
+    <form class="container rounded needs-validation py-5" action="" novalidate >
+        <div class="row g-3">
+            <div class="col-12 col-md-6">
+                <label for="firstname" class="form-label">Firstname</label>
+                <input type="text" class="form-control bg-light bg-light" name="firstname" id="firstname" placeholder="Firstname" required>
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="lastname" class="form-label">Lastname</label>
+                <input type="text" class="form-control bg-light" name="lastname" id="lastname" placeholder="Lastname" required>
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control bg-light" name="email" id="email" placeholder="Email" required>
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="tel" class="form-control bg-light" name="phone" id="phone" placeholder="Phone" required>
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="role" class="form-label">Role</label>
+                <input type="text" class="form-control bg-light" name="role" id="role" placeholder="Role" required>
+            </div>
+            <div class="col-12 col-md-6">
+                <label for="company" class="form-label">Company name</label>
+                <input type="text" class="form-control bg-light" name="company" id="company" placeholder="Company" required>
+            </div>
+            <div class="col-12 col-md-12">
+                <label for="project">What is your project?</label>
+                <select class="form-select bg-light" name="project" id="project" required>
+                    <option value="" selected disabled>Choose your role ...</option>
+                    <option value="option1">Option1</option>
+                    <option value="option2">Option2</option>
+                    <option value="option3">Option3</option>
+                    <option value="option4">Option4</option>
+                </select>
+            </div>
+            <div class="col-12 col-md-4">
+                <label for="address" class="form-label">Building address</label>
+                <input type="text" class="form-control bg-light" name="address" id="address" placeholder="Address" required>
+            </div>
+            <div class="col-6 col-md-4">
+                <label for="city" class="form-label">Building city</label>
+                <input type="text" class="form-control bg-light" name="city" id="city" placeholder="City" required>        
+            </div>
+            <div class="col-6 col-md-4">
+                <label for="postal-code" class="form-label">Building postal code</label>
+                <input type="text" class="form-control bg-light" name="postal-code" id="postal-code" placeholder="Postal Code" required>
+            </div>
+            <div class="col-12 col-md-12">
+                <label for="country">Country</label>
+                <select class="form-select bg-light" name="country" id="Country" required>
+                    <option value="" selected disabled>Choose your country ...</option>
+                    <option value="country1">Country1</option>
+                    <option value="country2">Country2</option>
+                    <option value="country3">Country3</option>
+                    <option value="country4">Country4</option>
+                </select>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-primary btn-lg px-5">Submit</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
