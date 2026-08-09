@@ -229,6 +229,7 @@
             const box = document.getElementById('infoBox');
             const title = document.getElementById('infoTitle');
             
+            // Αν είναι ήδη ανοιχτό και ξαναπατάμε το Contact, το κλείνουμε
             if (box.style.display === 'block' && type === 'contact') {
                 closeInfoBox();
                 return;
@@ -238,7 +239,7 @@
                 title.innerHTML = `Contact Us`;
             }
             
-            // Εμφάνιση του κουτιού
+            // Εμφάνιση του κουτιού και κλείδωμα του scroll στην πίσω σελίδα
             box.style.display = 'block';
             document.body.style.overflow = 'hidden';
 
@@ -249,20 +250,48 @@
                 bsCollapse.hide();
             }
         }
+
         function closeInfoBox() {
             document.getElementById('infoBox').style.display = 'none';
+            // Ξεκλείδωμα του scroll στην πίσω σελίδα
             document.body.style.overflow = '';
         }
+
+        // Ακρόαση για κλικ οπουδήποτε στη σελίδα
         document.addEventListener('click', function(event) {
             const box = document.getElementById('infoBox');
-            // Βρίσκουμε και το link του Contact Us για να μην συγκρούεται το κλικ πάνω του
             const contactLink = document.querySelector('a[onclick*="showInfo(\'contact\')"]');
 
-            // Αν το κουτί είναι ανοιχτό ΚΑΙ το κλικ έγινε έξω από το κουτί ΚΑΙ έξω από το link του Contact Us
             if (box.style.display === 'block' && !box.contains(event.target) && (!contactLink || !contactLink.contains(event.target))) {
                 closeInfoBox();
             }
         });
+    </script>
+
+    <!-- ΑΥΤΟ ΕΙΝΑΙ ΤΟ SCRIPT ΓΙΑ ΤΟ SCROLL ΤΟΥ NAVBAR ΠΟΥ ΠΡΕΠΕΙ ΝΑ ΕΝΗΜΕΡΩΘΕΙ -->
+    <script>
+        let _prevScrollpos = window.pageYOffset;
+        const _navbar = document.querySelector(".navbar");
+    
+        window.onscroll = function() {
+            const box = document.getElementById('infoBox');
+            
+            // Αν το bubble είναι ανοιχτό, κρατάμε σταθερό το navbar και δεν το αφήνουμε να κρυφτεί
+            if (box && box.style.display === 'block') {
+                navbar.style.top = "0";
+                return;
+            }
+
+            let currentScrollPos = window.pageYOffset;
+            
+            if (_prevScrollpos > currentScrollPos) {
+                _navbar.style.top = "0";
+            } else {
+                _navbar.style.top = "-80px";
+            }
+            
+            prevScrollpos = currentScrollPos;
+        }
     </script>
 
     <script>
