@@ -75,6 +75,7 @@ body {
         top: 4.2rem;          /* Ακριβώς κάτω από το mobile navbar */
         width: 100%;        /* Στα κινητά πιάνει όλη την οθόνη για καλύτερη εμπειρία */
         border-radius: 0;
+        max-height: calc(100dvh - 75px);
     }
 }
 
@@ -101,9 +102,10 @@ body {
     border-radius: 0 0 10px 10px; /* Στρογγυλεμένες μόνο οι κάτω γωνίες για να δένει ωραία */
     z-index: 1055;          /* Πάνω από όλα τα στοιχεία */
     display: none;          /* Ξεκινάει κρυφό */
-    max-height: calc(100vh - 100px); /* Περιορίζει το ύψος ώστε να μην βγαίνει ποτέ εκτός οθόνης */
+    max-height: calc(100dvh - 90px); /* Περιορίζει το ύψος ώστε να μην βγαίνει ποτέ εκτός οθόνης */
     overflow-y: auto;                /* Ενεργεργοποιεί κάθετο scroll αν το περιεχόμενο περισσεύει */
     -webkit-overflow-scrolling: touch;
+    padding-bottom: calc(2rem + env(safe-area-inset-bottom));
 }
 
 
