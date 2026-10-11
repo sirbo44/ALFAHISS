@@ -7,7 +7,8 @@
         <strong><h3 class="mb-3">CONTACT ALFAHISS</h3></strong>
         <h4>Please fill out the form below to learn more about products or services, to provide feedback or other inquires.</h4>
     </div>
-    <form class="container rounded needs-validation py-5" action="" novalidate >
+    <form class="container rounded needs-validation py-5" action="{% url 'contact-form' %}" method="POST" enctype="multipart/form-data" novalidate >
+        {% csrf_token %}
         <div class="row g-3">
             <div class="col-12 col-md-6">
                 <label for="firstname" class="form-label">Firstname</label>
