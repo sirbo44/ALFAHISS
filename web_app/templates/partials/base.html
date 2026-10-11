@@ -230,19 +230,21 @@
             const title = document.getElementById('infoTitle');
             
             // Αν είναι ήδη ανοιχτό και ξαναπατάμε το Contact, το κλείνουμε
-            if (box.style.display === 'block' && type === 'contact') {
+            if (box && box.style.display === 'block' && type === 'contact') {
                 closeInfoBox();
                 return;
             }
-
-            if (type === 'contact') {
+    
+            if (type === 'contact' && title) {
                 title.innerHTML = `Contact Us`;
             }
             
             // Εμφάνιση του κουτιού και κλείδωμα του scroll στην πίσω σελίδα
-            box.style.display = 'block';
+            if (box) {
+                box.style.display = 'block';
+            }
             document.body.style.overflow = 'hidden';
-
+    
             // Κλείσιμο του navbar στα κινητά
             const navbarCollapse = document.getElementById('navbarNav');
             if (navbarCollapse && navbarCollapse.classList.contains('show')) {
@@ -250,70 +252,66 @@
                 bsCollapse.hide();
             }
         }
-
+    
         function closeInfoBox() {
-            document.getElementById('infoBox').style.display = 'none';
+            const box = document.getElementById('infoBox');
+            if (box) {
+                box.style.display = 'none';
+            }
             // Ξεκλείδωμα του scroll στην πίσω σελίδα
             document.body.style.overflow = '';
         }
-
+    
         // Ακρόαση για κλικ οπουδήποτε στη σελίδα
         document.addEventListener('click', function(event) {
             const box = document.getElementById('infoBox');
             const contactLink = document.querySelector('a[onclick*="showInfo(\'contact\')"]');
-
-            if (box.style.display === 'block' && !box.contains(event.target) && (!contactLink || !contactLink.contains(event.target))) {
+    
+            if (box && box.style.display === 'block' && !box.contains(event.target) && (!contactLink || !contactLink.contains(event.target))) {
                 closeInfoBox();
             }
         });
     </script>
-
-    <!-- ΑΥΤΟ ΕΙΝΑΙ ΤΟ SCRIPT ΓΙΑ ΤΟ SCROLL ΤΟΥ NAVBAR ΠΟΥ ΠΡΕΠΕΙ ΝΑ ΕΝΗΜΕΡΩΘΕΙ -->
-    <script>
-        let _prevScrollpos = window.pageYOffset;
-        const _navbar = document.querySelector(".navbar");
     
-        window.onscroll = function() {
+    <!-- ΔΙΟΡΘΩΜΕΝΟ ΚΑΙ ΣΥΓΧΩΝΕΥΜΕΝΟ SCRIPT ΓΙΑ ΤΟ SCROLL ΤΟΥ NAVBAR -->
+    <script>
+        let prevScrollpos = window.pageYOffset || document.documentElement.scrollTop;
+        const navbar = document.querySelector(".navbar");
+        const scrollThreshold = 10; // Ελάχιστη απόσταση scroll για να ενεργοποιηθεί η αλλαγή
+    
+        window.addEventListener('scroll', function() {
             const box = document.getElementById('infoBox');
             
-            // Αν το bubble είναι ανοιχτό, κρατάμε σταθερό το navbar και δεν το αφήνουμε να κρυφτεί
+            // Αν το bubble είναι ανοιχτό, κρατάμε σταθερό το navbar
             if (box && box.style.display === 'block') {
-                navbar.style.top = "0";
+                if (navbar) navbar.style.top = "0";
                 return;
             }
-
-            let currentScrollPos = window.pageYOffset;
-            
-            if (_prevScrollpos > currentScrollPos) {
-                _navbar.style.top = "0";
-            } else {
-                _navbar.style.top = "-80px";
-            }
-            
-            prevScrollpos = currentScrollPos;
-        }
-    </script>
-
-    <script>
-        let prevScrollpos = window.pageYOffset;
-        const navbar = document.querySelector(".navbar");
     
-        window.onscroll = function() {
-            let currentScrollPos = window.pageYOffset;
+            let currentScrollPos = window.pageYOffset || document.documentElement.scrollTop;
             
-            if (prevScrollpos > currentScrollPos) {
-                navbar.style.top = "0";
+            // Αν η διαφορά είναι πολύ μικρή (π.χ. bounce στο σταμάτημα), μην κάνεις τίποτα
+            if (Math.abs(currentScrollPos - prevScrollpos) < scrollThreshold) {
+                return;
+            }
+    
+            // Αν κάνουμε scroll προς τα ΠΑΝΩ ή είμαστε πολύ ψηλά στην κορυφή της σελίδας
+            if (prevScrollpos > currentScrollPos || currentScrollPos <= 80) {
+                if (navbar) navbar.style.top = "0";
             } else {
-                navbar.style.top = "-80px";
+                // Scroll προς τα ΚΑΤΩ
+                if (navbar) navbar.style.top = "-80px";
             }
             
-            prevScrollpos = currentScrollPos;
-        }
+            // Ενημέρωση της προηγούμενης θέσης scroll
+            prevScrollpos = currentScrollPos <= 0 ? 0 : currentScrollPos;
+        });
     </script>
-
+    
     <script>
+        // Validation για τις φόρμες
         const forms = document.querySelectorAll('.needs-validation');
-
+    
         Array.from(forms).forEach(form => {
             form.addEventListener('submit', event => {
                 if (!form.checkValidity()) {
